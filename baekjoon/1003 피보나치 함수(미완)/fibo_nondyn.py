@@ -19,6 +19,6 @@ def fibonacci(n):
 for test_case in range(1, T + 1):
     N = int(input())
     fibo_N = fibonacci(N)
-    print("{} + {} = {} / {}".format(count_0, count_1, count_0 + count_1, fibo_N))
+    print(f"{count_0} {count_1}")
     count_0 = 0
     count_1 = 0
