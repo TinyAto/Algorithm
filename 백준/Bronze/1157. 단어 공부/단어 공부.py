@@ -1,7 +1,7 @@
 input_str = input().upper()
 count_dict = {}
 for char in input_str:
-    if not (char in count_dict):
+    if char not in count_dict:
         count_dict.setdefault(char, 1)
     else:
         count_dict[char] += 1
