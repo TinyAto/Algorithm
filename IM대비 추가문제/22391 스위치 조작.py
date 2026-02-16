@@ -1,6 +1,5 @@
 import sys
 from inspect import currentframe, getfile
-from pkgutil import resolve_name
 
 input_text_flie_name = getfile(currentframe()).split("/")[-1][:-3] + ".txt"
 try:
