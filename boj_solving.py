@@ -35,4 +35,4 @@ for student in students:
         for i in range(1, offset + 1):
             switches[switch_idx - i] = int(not switches[switch_idx - i])
             switches[switch_idx + i] = int(not switches[switch_idx + i])
-print(*switches, end='')
+print(*switches, end='') 
