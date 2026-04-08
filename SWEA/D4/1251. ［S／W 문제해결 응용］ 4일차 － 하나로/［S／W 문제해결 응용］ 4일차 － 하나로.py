@@ -15,29 +15,25 @@ for tc in range(1, T+1):
     N = int(input())
     x_cords = list(map(int, input().split()))
     y_cords = list(map(int, input().split()))
-    islands = list(zip(x_cords, y_cords))
     taxrate = float(input()) # E
     visited = [False] * N
-    mapper = {}
-    for idx, island in enumerate(islands):
-        mapper[island] = idx
 
     pq = []
-    heapq.heappush(pq, (0, islands[0]))
+    heapq.heappush(pq, [0, 0])
     total_cost = 0
 
     while pq:
-        cost, island = heapq.heappop(pq)
-        island_idx = mapper[island]
+        cost, node = heapq.heappop(pq)
 
-        if visited[island_idx]:
+        if visited[node]:
             continue
 
-        visited[island_idx] = True
+        visited[node] = True
         total_cost += cost
 
-        for next_island in islands:
-            tax = get_tax(taxrate, island, next_island)
-            heapq.heappush(pq, (tax, next_island))
+        for node_idx in range(N):
+            next_island = (x_cords[node_idx], y_cords[node_idx])
+            tax = get_tax(taxrate, (x_cords[node], y_cords[node]), next_island)
+            heapq.heappush(pq, (tax, node_idx))
 
     print(f"#{tc} {round(total_cost)}")
